@@ -1,0 +1,23 @@
+.per {
+  position: relative;
+  top: -87px;
+}
+.hum {
+  position: relative;
+  top: -65px;
+  left: -148px;
+}
+.wind {
+  position: relative;
+  top: -40px;
+  left: -276px;
+}
+.card {
+  margin: 0 auto;
+  border: 1px solid #000000;
+}
+
+.btn-sm {
+  position: relative;
+  top: -4px;
+}
