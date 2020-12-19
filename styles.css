@@ -1,16 +1,12 @@
-.per {
-  position: relative;
-  top: -87px;
-}
 .hum {
   position: relative;
   top: -65px;
-  left: -148px;
+  left: 40px;
 }
 .wind {
   position: relative;
   top: -40px;
-  left: -276px;
+  left: -100px;
 }
 .card {
   margin: 0 auto;
@@ -20,4 +16,7 @@
 .btn-sm {
   position: relative;
   top: -4px;
+}
+hr {
+  color: darkgreen;
 }

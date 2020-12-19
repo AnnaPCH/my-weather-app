@@ -1,25 +1,67 @@
 function showWeather(response) {
   let temp = document.querySelector("#temperature");
-  temp.innerHTML = response.data.main.temp;
+  temp.innerHTML = Math.round(response.data.main.temp);
+  let deg = document.querySelector("#degrees");
+  deg.innerHTML = "°C";
   let hum = document.querySelector("#humidity");
   hum.innerHTML = response.data.main.humidity;
   let wind = document.querySelector("#windspeed");
   wind.innerHTML = response.data.wind.speed;
   let windDegrees = document.querySelector("#wSpDeg");
   windDegrees.innerHTML = "meters/second";
+  let convButton = document.querySelector("#conversion-btn");
+  convButton.innerHTML = "°C to °F";
 }
 function showCity(event) {
   event.preventDefault();
-  let city = document.querySelector("#city-input");
+  let city = document.querySelector("h1");
+ let cityValue = document.querySelector("#city-input").value ;
+  cityValue.trim();
+  if(cityValue.length <= 0 ) {
+   city.innerHTML = "Please enter a city";
+   alert("Please enter acity");
+  } else {
+     let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=6870760fab0d60a8a4c52bbd8751c3cc&units=metric`;
+  axios.get(url).then(showWeather);
+    city.innerHTML = cityValue;
+  }
+  }
+  function checkConvButton() {
+    let degrees = document.querySelector("#degrees"); 
+  if (degrees.innerHTML === "°C") {
+   let city = document.querySelector("#city-input");
+  let cityValue = document.querySelector("h1");
+  cityValue.innerHTML = city.value;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=6870760fab0d60a8a4c52bbd8751c3cc&units=imperial`;
+  axios.get(url).then(showWeatherImp);
+  } else {
+
+     let city = document.querySelector("#city-input");
   let cityValue = document.querySelector("h1");
   cityValue.innerHTML = city.value;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=6870760fab0d60a8a4c52bbd8751c3cc&units=metric`;
-  axios.get(url).then(showWeather);
-}
+  axios.get(url).then(showWeatherMetric);
+  }
+  }
+  function  showWeatherMetric (response) {
+    let temp = document.querySelector("#temperature");
+  temp.innerHTML =Math.round(response.data.main.temp);
+  let deg = document.querySelector("#degrees");
+  deg.innerHTML = "°C";
+  let hum = document.querySelector("#humidity");
+  hum.innerHTML = response.data.main.humidity;
+  let wind = document.querySelector("#windspeed");
+  wind.innerHTML = response.data.wind.speed;
+  let windDegrees = document.querySelector("#wSpDeg");
+  windDegrees.innerHTML = "m/s";
+  let convButton = document.querySelector("#conversion-btn");
+  convButton.innerHTML = "°C to °F";
+  }
 
 function showWeatherImp(response) {
+  
   let temp = document.querySelector("#temperature");
-  temp.innerHTML = response.data.main.temp;
+  temp.innerHTML =Math.round(response.data.main.temp);
   let deg = document.querySelector("#degrees");
   deg.innerHTML = "°F";
   let hum = document.querySelector("#humidity");
@@ -31,16 +73,6 @@ function showWeatherImp(response) {
   let convButton = document.querySelector("#conversion-btn");
   convButton.innerHTML = "°F to °C";
 }
-
-function convertDegrees() {
-  let city = document.querySelector("#city-input");
-  let cityValue = document.querySelector("h1");
-  cityValue.innerHTML = city.value;
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=6870760fab0d60a8a4c52bbd8751c3cc&units=imperial`;
-  axios.get(url).then(showWeatherImp);
-}
-
-debugger
 
 let appDate = document.querySelector("h6");
 
@@ -96,4 +128,4 @@ searchForm.addEventListener("submit", showCity);
 
 let convButton = document.querySelector("#conversion-btn");
 
-convButton.addEventListener("click", convertDegrees);
+convButton.addEventListener("click", checkConvButton);
