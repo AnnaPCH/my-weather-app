@@ -1,10 +1,11 @@
-h1 {
-  color: #fffff0;
-  text-size-adjust: 50%;
+h2 {
+  color: #f8f8c9;
 }
-h3,
+h3 {
+  color: #f8f8c9;
+}
 h6 {
-  color: #fffff0;
+  color: #f8f8c9;
 }
 
 hr {
@@ -15,13 +16,13 @@ hr {
   position: relative;
   top: -65px;
   left: 40px;
-  color: #fffff0;
+  color: #f8f8c9;
 }
 .wind {
   position: relative;
   top: -40px;
   left: -100px;
-  color: #fffff0;
+  color: #f8f8c9;
 }
 .card {
   margin: 0 auto;
@@ -37,4 +38,13 @@ hr {
 
 .btn-outline-light {
   border-radius: 10px;
+}
+
+#current-weather-emoji {
+  margin: 5px auto;
+  font-size: small;
+}
+
+#description {
+  font-size: small;
 }
