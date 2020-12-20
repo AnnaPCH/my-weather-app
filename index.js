@@ -1,4 +1,7 @@
+
 function showWeather(response) {
+  let cityElement = document.querySelector("h2");
+ cityElement.innerHTML = response.data.name;
   let temp = document.querySelector("#temperature");
   temp.innerHTML = Math.round(response.data.main.temp);
   let deg = document.querySelector("#degrees");
@@ -12,8 +15,9 @@ function showWeather(response) {
   let windDegrees = document.querySelector("#wSpDeg");
   windDegrees.innerHTML = "m/s";
   let convButton = document.querySelector("#conversion-btn");
-  convButton.innerHTML = "°C to °F";
+ 
 }
+
 function showCity(event) {
   event.preventDefault();
   let city = document.querySelector("h2");
@@ -21,7 +25,7 @@ function showCity(event) {
   cityValue.trim();
   if(cityValue.length <= 0 ) {
    city.innerHTML = "Please enter a city";
-   alert("Please enter acity");
+   alert("Please enter a city");
   } else {
      let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=6870760fab0d60a8a4c52bbd8751c3cc&units=metric`;
   axios.get(url).then(showWeather);
@@ -32,8 +36,8 @@ function showCity(event) {
     let degrees = document.querySelector("#degrees"); 
   if (degrees.innerHTML === "°C") {
    let city = document.querySelector("#city-input");
-  let cityValue = document.querySelector("h2");
-  cityValue.innerHTML = city.value;
+  let cityElement = document.querySelector("h2");
+  cityElement.innerHTML = city.value;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=6870760fab0d60a8a4c52bbd8751c3cc&units=imperial`;
   axios.get(url).then(showWeatherImp);
   } else {
@@ -58,6 +62,7 @@ function showCity(event) {
   windDegrees.innerHTML = "m/s";
   let convButton = document.querySelector("#conversion-btn");
   convButton.innerHTML = "°C to °F";
+  convButton.addEventListener("click", checkConvButton);
   }
 
 function showWeatherImp(response) {
@@ -74,6 +79,7 @@ function showWeatherImp(response) {
   windDegrees.innerHTML = "mi/h";
   let convButton = document.querySelector("#conversion-btn");
   convButton.innerHTML = "°F to °C";
+  
 }
 
 let appDate = document.querySelector("h6");
@@ -122,12 +128,17 @@ let month = months[now.getMonth()];
 
 let day = days[now.getDay()];
 
-appDate.innerHTML = `${day}, ${month} ${date} ${year} ${hour}:${minutes}`;
+appDate.innerHTML = `${day}, ${month} ${date} ${year} ${hour}:${minutes}`; 
+
+let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=Heraklion&appid=6870760fab0d60a8a4c52bbd8751c3cc&units=metric" ;
+axios.get(apiUrl).then(showWeather) ;
+
+let convButton = document.querySelector("#conversion-btn");
+
+convButton.addEventListener("click", checkConvButton);
 
 let searchForm = document.querySelector("#search-city-form");
 
 searchForm.addEventListener("submit", showCity);
 
-let convButton = document.querySelector("#conversion-btn");
 
-convButton.addEventListener("click", checkConvButton);

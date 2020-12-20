@@ -1,5 +1,6 @@
 h2 {
   color: #f8f8c9;
+  text-transform: capitalize;
 }
 h3 {
   color: #f8f8c9;
@@ -47,4 +48,5 @@ hr {
 
 #description {
   font-size: small;
+  text-transform: capitalize;
 }
