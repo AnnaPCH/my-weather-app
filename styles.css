@@ -1,22 +1,40 @@
+h1 {
+  color: #fffff0;
+  text-size-adjust: 50%;
+}
+h3,
+h6 {
+  color: #fffff0;
+}
+
+hr {
+  border-color: #006400;
+}
+
 .hum {
   position: relative;
   top: -65px;
   left: 40px;
+  color: #fffff0;
 }
 .wind {
   position: relative;
   top: -40px;
   left: -100px;
+  color: #fffff0;
 }
 .card {
   margin: 0 auto;
-  border: 1px solid #000000;
+  border: 1px solid #006400;
+  max-width: 650px;
+  border-radius: 4px;
+  background-image: url(https://cdn.pixabay.com/photo/2014/07/06/20/27/watercolor-385841_1280.jpg);
 }
 
 .btn-sm {
-  position: relative;
-  top: -4px;
+  margin: 10px auto;
 }
-hr {
-  color: darkgreen;
+
+.btn-outline-light {
+  border-radius: 10px;
 }
