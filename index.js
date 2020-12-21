@@ -14,8 +14,6 @@ function showWeather(response) {
   wind.innerHTML = response.data.wind.speed;
   let windDegrees = document.querySelector("#wSpDeg");
   windDegrees.innerHTML = "m/s";
-  let convButton = document.querySelector("#conversion-btn");
- 
 }
 
 function showCity(event) {
