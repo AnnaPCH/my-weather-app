@@ -14,6 +14,10 @@ function showWeather(response) {
   windDegrees.innerHTML = "m/s";
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  console.log(`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
 }
 
 function showCity(event) {
