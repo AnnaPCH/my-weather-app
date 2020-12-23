@@ -5,7 +5,8 @@ h2 {
 h3 {
   color: #f8f8c9;
 }
-h6 {
+h6,
+.update {
   color: #f8f8c9;
 }
 
@@ -13,20 +14,18 @@ hr {
   border-color: #006400;
 }
 
+.update:first-letter {
+  text-transform: capitalize;
+}
 .hum {
-  position: relative;
-  top: -65px;
-  left: 40px;
   color: #f8f8c9;
 }
 .wind {
-  position: relative;
-  top: -40px;
-  left: -100px;
   color: #f8f8c9;
 }
-.card {
-  margin: 0 auto;
+.container {
+  margin: 15px auto;
+  padding: 20px 10px;
   border: 1px solid #006400;
   max-width: 650px;
   border-radius: 4px;
@@ -35,9 +34,6 @@ hr {
 
 .btn-sm {
   margin: 10px auto;
-}
-
-.btn-outline-light {
   border-radius: 10px;
 }
 
@@ -49,4 +45,11 @@ hr {
 #description {
   font-size: small;
   text-transform: capitalize;
+}
+
+.conversion,
+a {
+  color: #f8f8c9;
+  text-decoration: none;
+  font-size: x-small;
 }

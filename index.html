@@ -14,22 +14,19 @@
 
 <body>
   <div class="container">
-    <div class="card">
-      <div class="card-body">
         <div class="row">
           <div class="col-6">
-            <h2>Heraklion</h2>
+            <h2 id="city"></h2>
             <h3>
               <span id="temperature"></span>
-              <span id="degrees"></span>
+              <span class ="conversion"><a href="#">°C </a> | <a href="#"> °F</a></span>
               <span id="current-weather-emoji">🌤</span>
               <div id="description"></div>
             </h3>
-            <h6>
-              Sunday 16:00
-            </h6>
+           
           </div>
           <div class="col-6">
+             <div class= "row">
             <form id="search-city-form">
               <input type="search" id="city-input" placeholder="Enter city" />
               <button class="btn btn-outline-light btn-sm">
@@ -37,25 +34,25 @@
               </button>
             </form>
           </div>
+          </div>
         </div>
-        <div class="row">
-          <div class="col-6">
-            <button class="btn btn-outline-light btn-sm" id="conversion-btn">
-              °C to °F
-            </button>
-          </div>
-          <div class="col-6">
-            <div class="row">
-              <span class="hum">
-                Humidity: <span id="humidity">68</span>%
-              </span>
-              <span class="wind">
-                Wind: <span id="windspeed">13</span>
-                <span id="wSpDeg">m/sec</span>
-              </span>
+            <div class = "row">
+              <div class = "col-6">
+                 <div class= "update">Last updated at:</div>
+                  <h6 id= "date"></h6>
+              </div>
+              <div class = "col-6">
+            <ul>
+              <li class="hum">
+                Humidity: <span id="humidity"></span>%
+              </li>
+              <li class="wind">
+                Wind: <span id="windspeed"></span>
+                <span id="wSpDeg"></span>
+              </li>
+              </ul>
             </div>
-          </div>
-          
+            </div>
           <div class="col-12">
             <hr />
             <div class="row">
@@ -93,9 +90,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
   <script src="index.js"></script>
 </body>
 
