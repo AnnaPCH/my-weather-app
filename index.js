@@ -35,7 +35,8 @@ function showCity(event) {
     city.innerHTML = cityValue;
   }
   }
-  function conversionF () {
+  function conversionF (event) {
+    event.preventDefault();
     let temp = document.querySelector("#temperature");
    let fTemp= celsiusTemp * (9/5) + 32 ;
    temp.innerHTML = Math.round(fTemp);
@@ -43,8 +44,8 @@ function showCity(event) {
    f.classList.add("active");
   }
 
-  
-function conversionC () {
+function conversionC (event) {
+  event.preventDefault();
 let temp = document.querySelector("#temperature");
 temp.innerHTML = Math.round(celsiusTemp);
 f.classList.remove("active");

@@ -2,13 +2,6 @@ h2 {
   color: #f8f8c9;
   text-transform: capitalize;
 }
-h3 {
-  color: #f8f8c9;
-}
-h6,
-.update {
-  color: #f8f8c9;
-}
 
 hr {
   border-color: #006400;
@@ -17,12 +10,7 @@ hr {
 .update:first-letter {
   text-transform: capitalize;
 }
-.hum {
-  color: #f8f8c9;
-}
-.wind {
-  color: #f8f8c9;
-}
+
 .container {
   margin: 15px auto;
   padding: 20px 10px;
@@ -30,6 +18,7 @@ hr {
   max-width: 650px;
   border-radius: 4px;
   background-image: url(watcol1.png);
+  color: #f8f8c9;
 }
 
 .btn-sm {
@@ -48,6 +37,9 @@ a {
   font-size: x-small;
 }
 
+a:hover {
+  text-decoration: none;
+}
 .active {
   color: #f8f8c9;
   cursor: default;
