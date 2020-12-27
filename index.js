@@ -3,7 +3,8 @@ function showWeather(response) {
   let cityElement = document.querySelector("#city");
  cityElement.innerHTML = response.data.name;
   let temp = document.querySelector("#temperature");
-  temp.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+  temp.innerHTML = Math.round(celsiusTemp);
   let description = document.querySelector("#description");
   description.innerHTML = response.data.weather[0].description ;
   let hum = document.querySelector("#humidity");
@@ -16,13 +17,13 @@ function showWeather(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-  console.log(`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+ 
 
 }
 
 function showCity(event) {
   event.preventDefault();
-  let city = document.querySelector("h2");
+  let city = document.querySelector("#city");
  let cityValue = document.querySelector("#city-input").value ;
   cityValue.trim();
   if(cityValue.length <= 0 ) {
@@ -34,46 +35,20 @@ function showCity(event) {
     city.innerHTML = cityValue;
   }
   }
-  function conversionF ()
-  {  preventDefault();
-    let c = document.querySelector("#conversion-f");
-   let city = document.querySelector("#city-input");
-  let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = city.value;
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=6870760fab0d60a8a4c52bbd8751c3cc&units=imperial`;
-  axios.get(url).then(showWeatherImp);
-  }  
-function conversionC () {
- preventDefault();
-    let c = document.querySelector("#conversion-c");
-   let city = document.querySelector("#city-input");
-  let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = city.value;
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=6870760fab0d60a8a4c52bbd8751c3cc&units=metric`;
-  axios.get(url).then(showWeatherMetric);
-  }
-  
-  function  showWeatherMetric (response) {
+  function conversionF () {
     let temp = document.querySelector("#temperature");
-  temp.innerHTML =Math.round(response.data.main.temp);
-  let hum = document.querySelector("#humidity");
-  hum.innerHTML = response.data.main.humidity;
-  let wind = document.querySelector("#windspeed");
-  wind.innerHTML = response.data.wind.speed;
-  let windDegrees = document.querySelector("#wSpDeg");
-  windDegrees.innerHTML = "m/s";
+   let fTemp= celsiusTemp * (9/5) + 32 ;
+   temp.innerHTML = Math.round(fTemp);
+   c.classList.remove("active");
+   f.classList.add("active");
   }
 
-function showWeatherImp(response) {
   
-  let temp = document.querySelector("#temperature");
-  temp.innerHTML =Math.round(response.data.main.temp);
-  let hum = document.querySelector("#humidity");
-  hum.innerHTML = response.data.main.humidity;
-  let wind = document.querySelector("#windspeed");
-  wind.innerHTML = response.data.wind.speed;
-  let windDegrees = document.querySelector("#wSpDeg");
-  windDegrees.innerHTML = "mi/h"; 
+function conversionC () {
+let temp = document.querySelector("#temperature");
+temp.innerHTML = Math.round(celsiusTemp);
+f.classList.remove("active");
+   c.classList.add("active");
 }
 
 function formatDate (timestamp) {
@@ -124,4 +99,10 @@ let searchForm = document.querySelector("#search-city-form");
 
 searchForm.addEventListener("submit", showCity);
 
+let c = document.querySelector("#link-C");
 
+c.addEventListener("click", conversionC);
+
+let f = document.querySelector("#link-F");
+
+f.addEventListener("click", conversionF);

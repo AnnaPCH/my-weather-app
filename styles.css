@@ -45,6 +45,16 @@ hr {
 .conversion,
 a {
   color: #f8f8c9;
-  text-decoration: none;
   font-size: x-small;
+}
+
+.active {
+  color: #f8f8c9;
+  cursor: default;
+}
+
+.active:hover {
+  color: #f8f8c9;
+  cursor: default;
+  text-decoration: none;
 }
