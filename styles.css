@@ -32,7 +32,8 @@ hr {
 }
 
 .conversion,
-a {
+#link-F,
+#link-C {
   color: #f8f8c9;
   font-size: x-small;
 }
@@ -49,4 +50,10 @@ a:hover {
   color: #f8f8c9;
   cursor: default;
   text-decoration: none;
+}
+
+.name {
+  text-align: center;
+  margin: 0 auto;
+  font-size: x-small;
 }
